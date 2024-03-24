@@ -17,12 +17,196 @@ body {
 }
 
 .main-menu {
-    display: none;
-}
+        background-color: var(--bg-primary);
+        max-width: 0;
+        height: 100vh;
+        overflow: hidden;
+        margin-top: 60px;
+        transition: all .5s ease;
+        display: block;
+    }
+    
+    .nav-bar {
+        display: flex;
+        flex-direction: row;
+        padding-top: 30px;
+        position: relative;
+        width: 100%;
+    }
+    
+    .women-icon,.men-icon,.kids-icon{
+        margin-left: 10px;
+    }
+    
+    
+    .lists ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .lists a {
+        color: var(--text-primary);
+        text-decoration: none;
+        display: block;
+        padding: 15px;
+        transition: all .5s ease;
+    }
+    
+    .lists a:hover {
+        background-color: var(--bg-secondary);
+    }
+    
+    .nav-bar span {
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all .5s ease;
+    }
+    
+    .nav-bar span:hover {
+        color: var(--text-primary);
+    }
+    
+    
+    .women-icon::after {
+        content: "";
+        height: 1px;
+        width: 100%;
+        background-image: linear-gradient(90deg, var(--text-primary), var(--bg-secondary) ) ;
+        position: absolute;
+        left: 0;
+        top: 60px;
+        cursor: default;
+    }
+    
+    .nav-bar input {
+        display: none;
+    }
+    
+    .women-menu {
+        margin-top: 30px;
+        position: absolute;
+        left: 0;
+        background-color: var(--bg-primary);
+        width: 100vh;
+        transition: all .5s ease;
+    
+    }
+    .men-menu {
+        margin-top: 30px;
+        position: absolute;
+        left: 0;
+    
+        background-color: var(--bg-primary);
+        width: 100vh;
+        transition: all .5s ease;
+    
+    }
+    .kids-menu {
+        margin-top: 30px;
+        position: absolute;
+        left: 0;
+    
+        background-color: var(--bg-primary);
+        width: 100vh;
+        transition: all .5s ease;
+    }
+    
+    .nav-bar .women-tab .women-btn:checked ~ .women-menu {
+        z-index: 4;
+    }
+    .nav-bar .women-tab .women-btn:checked ~ .men-tab .men-menu {
+        z-index: 2;
+    }
+    .nav-bar .women-tab .women-btn:checked ~ .kids-tab .kids-menu {
+        z-index: 1;
+    }
+    
+    .nav-bar .men-tab .men-btn:checked ~ .men-menu {
+        z-index: 4;
+    }
+    .nav-bar .men-tab .men-btn:checked ~ .women-tab .women-menu  {
+        z-index: 2;
+    }
+    .nav-bar .men-tab .men-btn:checked ~ .kids-tab .kids-menu {
+        z-index: 1;
+    }
+    
+    .nav-bar .women-tab .women-btn:checked ~ label .women-icon {
+        color: var(--text-primary);
+    }
+    .nav-bar .men-tab .men-btn:checked ~ label .men-icon {
+        color: var(--text-primary);
+    }
+    .nav-bar .kids-tab .kids-btn:checked ~ label .kids-icon {
+        color: var(--text-primary);
+    }
+    
+    .ham-icon {
+        cursor: pointer;
+        height: 3.5px;
+        width: 24px;
+        background-color: var(--text-primary);
+        position: absolute;
+        top: 30px;
+        left: 10px;
+        transition: background .5s ease;
+    }
+    
+    .ham-icon::after {
+        content: "";
+        cursor: pointer;
+        height: 3.5px;
+        width: 24px;
+        background-color: var(--text-primary);
+        position: absolute;
+        top: -7px;
+        transition: all .5s ease;
+        
+    
+    }
+    .ham-icon::before {
+        content: "";
+        cursor: pointer;
+        height: 3.5px;
+        width: 24px;
+        background-color: var(--text-primary);
+        position: absolute;
+        top: 7px;
+        transition: all .5s ease;
+    }
+    
+    .icon-label{
+        position: relative;
+        padding: 25px;
+        left: 10px;
+        top: 40px;
+        cursor: pointer;
+    }
+    
+    .menu-btn {
+        display: none;
+    }
+    
+    .menu-btn:checked ~ .main-menu {
+        padding: 20px;
+        padding-top: 30px;
+        max-width: 80%;
+    }
+    
+    .menu-btn:checked ~ .icon-label .ham-icon{
+        background-color: transparent;
+    }
+    .menu-btn:checked ~ .icon-label .ham-icon::after{
+        transform: rotate(45deg);
+        top: 0;
+    }
+    .menu-btn:checked ~ .icon-label .ham-icon::before{
+        transform: rotate(-45deg);
+        top: 0;
+    }
 
-.menu-btn {
-    display: none;
-}
+
 
 
 @media screen and (max-width: 480px) {
